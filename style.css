@@ -56,14 +56,8 @@ body {
 }
 
 .progress-controller > * {
-    margin: 0.5em 0;
-
-    padding: 0 4em;
-}
-
-.progress-value, .controller-switch {
-    width: 40%;
-    height: 10%;
+    margin: 10px 0;
+    padding: 0 50px;
 }
 
 .progress-value-input {
@@ -128,6 +122,11 @@ body {
     text-align: center
 } */
 
+.controller-switch {
+    display: flex;
+    align-items: center;
+}
+
 .controller-switch input {
     position: absolute;
     opacity: 0;
@@ -165,9 +164,13 @@ body {
     transform: translateX(25px);
 }
 
+.switch-text {
+    padding: 0 5px;
+}
+
 
 /* @media для горизонтально ориентированного экрана*/
-@media only screen and (min-width: 600px) and (orientation: landscape) {
+@media only screen and (min-width: 500px) and (max-width: 1000px) and (orientation: landscape) {
     .container {
         grid-template-rows: unset;
         grid-template-columns: 1fr 1fr;
