@@ -171,8 +171,7 @@ body {
   /* @media для решения проблемы поля ввода в сафари */
 
   @media only screen and (max-device-width: 414px) and (-webkit-device-pixel-ratio: 2) {
-    .progress-value-input {
+    .progress-controller .progress-value-input {
       width: 40px; 
     }
   }
-   
