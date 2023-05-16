@@ -167,7 +167,7 @@ body {
 
 
 /* @media для горизонтально ориентированного экрана*/
-@media only screen and (max-width: 1000px) and (orientation: landscape) {
+@media only screen and (min-width: 600px) and (orientation: landscape) {
     .container {
         grid-template-rows: unset;
         grid-template-columns: 1fr 1fr;
