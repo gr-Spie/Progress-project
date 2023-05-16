@@ -1,0 +1,175 @@
+:root {
+    --primary-color: #255dff;
+    --secondary-color: #eff3f6;
+    --disabled-color: #e0e6ef;
+    font-family: sans-serif;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    
+}
+
+/* контейнер для прогресса */
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 285px;
+    background-color: white;
+    overflow: hidden;
+    margin: auto;
+} 
+
+.progress-ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: 
+    radial-gradient(closest-side, white 82%,      transparent 83% 100%),
+    conic-gradient( var(--primary-color) 0%, var(--secondary-color) 0); 
+    opacity: 1;
+    transition: opacity 0.5; 
+}
+
+/* блок управления */
+.progress-controller {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 320px;
+    height: 285px;
+    margin: auto;
+}
+
+.progress-controller > * {
+    margin: 0.5em 0;
+
+    padding: 0 4em;
+}
+
+.progress-value, .controller-switch {
+    width: 40%;
+    height: 10%;
+}
+
+.progress-value-input {
+    border: 1.5px solid black;
+    border-radius: 25px;
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    font-size: 18px; 
+}
+
+/* удаление стрелочек из поля ввода */
+.progress-value-input::-webkit-inner-spin-button,
+.progress-value-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.progress-value-input[type="number"] {
+    -moz-appearance: textfield; 
+}
+
+
+/* класс для состояния animated */
+.progress-animated {
+    animation: progress-animation 1s ease-in infinite;
+}
+
+/* класс для состояния hidden */
+.progress-hidden {
+    opacity: 0;
+    display: none;
+}
+
+/* анимация состояния animated */
+@keyframes progress-animation {
+    0% {
+        transform: rotate(0deg);
+        background: 
+        radial-gradient(closest-side, white 82%,      transparent 83% 100%),
+        conic-gradient( var(--primary-color) 25%, var(--secondary-color) 0);  
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        background: 
+        radial-gradient(closest-side, white 82%,      transparent 83% 100%),
+        conic-gradient( var(--primary-color) 25%, var(--secondary-color) 0);  
+    }
+}
+
+
+/* создаем переключатели для стилизации чекбоксов */
+/* 
+.controller-text {
+    padding-left: 20px;
+    font-size: 20px;
+} */
+/* 
+.controller-switch {
+    text-align: center
+} */
+
+.controller-switch input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.controller-switch .slider {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+  background-color: var(--disabled-color);
+  border-radius: 30px;
+  transition: background-color 0.3s;
+}
+
+.controller-switch input:checked + .slider {
+    background-color: var(--primary-color);
+  }
+
+.controller-switch .slider:before{
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.controller-switch input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+
+/* @media для горизонтально ориентированного экрана*/
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+    .container {
+        grid-template-rows: unset;
+        grid-template-columns: 1fr 1fr;
+    }
+  }
