@@ -167,3 +167,15 @@ body {
         grid-template-columns: 1fr 1fr;
     }
   }
+
+
+/* @media для айфонов */
+@media only screen and (max-device-width: 414px) and (-webkit-device-pixel-ratio: 2) {
+  .progress-controller .progress-value-input {
+    width: 60px; 
+  }
+
+  .progress-controller .slider {
+    width: 60px; 
+  }
+}
