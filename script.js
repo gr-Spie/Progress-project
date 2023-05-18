@@ -10,7 +10,10 @@ const progressRing = new Progress(progressContainer); // привязваем н
 
 
 progressInput.addEventListener('input', (e) => {
-    let progressValue = parseInt(e.target.value); // значение value привязываем к переменной
+    let progressValue = parse.int(e.target.value); // значение value привязываем к переменной
+    let styleName = 'background';
+    let style = `radial-gradient(closest-side, white 82%,      transparent 83% 100%),
+    conic-gradient( var(--primary-color) ${progressValue}%, var(--secondary-color) 0);`
 
     if (progressValue > 100 ) {
         progressValue = 100;
