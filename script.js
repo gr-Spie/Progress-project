@@ -11,14 +11,15 @@ const progressRing = new Progress(progressContainer); // привязваем н
 
 progressInput.addEventListener('input', (e) => {
     let progressValue = e.target.value; // значение value привязываем к переменной
+    let styleName = 'background'
+    let style = `radial-gradient(closest-side, white 83%, transparent 84% 100%), conic-gradient(var(--primary-color) ${progressValue}%, var(--secondary-color) 0)`
 
     if (progressValue > 100 ) {
         progressValue = 100;
     } 
-    e.target.value =  progressRing.setProgress(progressValue); // отображаем прогресс в зависимости от value
+    e.target.value = progressRing.setProgress(progressValue, styleName, style); // отображаем прогресс в зависимости от value
 
 }); // при изменении значения ввода вызываем метод setProgress()
-
 
 progressAnimToggle.addEventListener('change', (e) => {
     progressRing.setAnimated(e.target.checked);
@@ -31,3 +32,4 @@ progressHideToggle.addEventListener('change',(e) => {
     progressInput.value = 0;
     progressAnimToggle.checked = progressRing.state.animated;
 });// при изменении значения вывода переключаем переключатель Hidden
+
