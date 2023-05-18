@@ -9,10 +9,10 @@ class Progress {
         }
     }
 
-    setProgress(value) {
+    setProgress(value, styleName, style) {
         let percentage = Number(value);
         if (!isNaN(percentage) && percentage <= 100 && this.state.normal) {
-            this.progressElement.style.background = `radial-gradient(closest-side, white 83%, transparent 84% 100%), conic-gradient(var(--primary-color) ${percentage}%, var(--secondary-color) 0)`
+            this.progressElement.style[styleName] = style;
 
             this.value = percentage;
             return this.value;

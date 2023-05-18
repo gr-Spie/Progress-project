@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="stylesheet" href="style.css">
     <title>Progress Bar</title>
 </head>
@@ -12,17 +12,17 @@
         <div class="progress-container" id="progress-container">
             <div class="progress-ring" id="progress"></div>
         </div>
-        <div class="progress-controller">
+        <div class="progress-controller" id="progress-controller">
             <div class="progress-value">
                 <input type="number" class="progress-value-input" id="progress-input" placeholder="0" value="0" min="0" max="100">
                 <span>Value</span>
             </div>
-            <label class="controller-switch">
+            <label class="controller-switch" for="progress-anim-toggle">
                 <input type="checkbox" name="animate" id="progress-anim-toggle">
                 <span class="slider"></span>
                 <span class="switch-text">Animate</span>
             </label>
-            <label class="controller-switch">
+            <label class="controller-switch" for="progress-hide-toggle">
                 <input type="checkbox" name="hide" id="progress-hide-toggle">
                 <span class="slider"></span>
                 <span class="switch-text">Hide</span>

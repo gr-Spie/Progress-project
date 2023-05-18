@@ -76,10 +76,10 @@ body {
     margin: 0;
 }
 
-.progress-value-input[type="number"] {
-    -moz-appearance: textfield; 
-}
 
+.progress-value-input[type=number] {
+    -moz-appearance:textfield;
+}
 
 /* класс для состояния animated */
 .progress-animated {
@@ -169,13 +169,4 @@ body {
   }
   
 
-  /* @media для решения проблемы на Safari mobile */
-  @media only screen and (max-width: 414px) and (-webkit-device-pixel-ratio: 2) {
-    .progress-controller .progress-value-input {
-      width: 60px;
-    }
   
-    .progress-controller .slider {
-      width: 60px; 
-    }
-  }
